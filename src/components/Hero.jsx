@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import modelPng from '../assets/IMG_20260509_100314_592.webp';
+import modelPng from '../assets/hero2.png';
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -25,12 +25,12 @@ const Hero = () => {
       alignItems: 'center',
       justifyContent: 'center'
     }}>
-
+      
       {/* High-End Grain Overlay */}
       <div style={{
-        position: 'absolute', inset: 0,
-        backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")',
-        opacity: 0.04, pointerEvents: 'none', zIndex: 10
+        position: 'absolute', inset: 0, 
+        backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")', 
+        opacity: 0.04, pointerEvents: 'none', zIndex: 10 
       }} />
 
       {/* Amharic Watermark - Cultural Identity */}
@@ -63,8 +63,8 @@ const Hero = () => {
       <motion.div
         style={{
           position: 'relative',
-          height: '85vh', /* Slightly shorter to lower it */
-          marginTop: '80px', /* Pushed down from fixed header */
+          height: '85vh',
+          marginTop: '80px',
           width: 'auto',
           zIndex: 2,
           y: yParallax,
@@ -86,7 +86,7 @@ const Hero = () => {
             filter: 'drop-shadow(0 50px 100px rgba(0,0,0,0.08))',
           }}
         />
-
+        
         {/* Silk Badge Overlay */}
         <div style={{
           position: 'absolute',
@@ -108,9 +108,9 @@ const Hero = () => {
       </motion.div>
 
       {/* Editorial Frame */}
-
+      
       {/* Top Left: Geographic & Time */}
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1.5 }}
         style={{ position: 'absolute', left: '4rem', top: '22%', zIndex: 3 }}
         className="hero-ui-top-left"
@@ -120,7 +120,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Center Left: Promotion Block */}
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8, duration: 1.5 }}
         style={{ position: 'absolute', left: '4rem', top: '55%', transform: 'translateY(-50%)', zIndex: 3, maxWidth: '200px' }}
         className="hero-ui-center-left"
@@ -135,7 +135,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Bottom Right: Material Spec */}
-      <motion.div
+      <motion.div 
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 1.5 }}
         style={{ position: 'absolute', right: '4rem', bottom: '10%', zIndex: 3, textAlign: 'right' }}
         className="hero-ui-bottom-right"
@@ -145,7 +145,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Scroll Guide */}
-      <motion.div
+      <motion.div 
         animate={{ y: [0, 15, 0] }}
         transition={{ duration: 3, repeat: Infinity }}
         style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}
