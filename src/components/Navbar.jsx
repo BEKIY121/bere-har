@@ -14,14 +14,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu on route change
   useEffect(() => setIsOpen(false), [location]);
 
   const navLinks = [
-    { name: 'Home', path: '/', id: '01' },
-    { name: 'Shop', path: '/shop', id: '02' },
-    { name: 'Philosophy', path: '/philosophy', id: '03' },
-    { name: 'Atelier', path: '/atelier', id: '04' },
+    { name: 'Home', path: '/' },
+    { name: 'Shop', path: '/shop' },
+    { name: 'Philosophy', path: '/philosophy' },
+    { name: 'Atelier', path: '/atelier' },
   ];
 
   return (
@@ -32,33 +31,41 @@ const Navbar = () => {
         left: 0,
         width: '100%',
         zIndex: 100,
-        padding: isScrolled ? '1rem 4rem' : '2.5rem 4rem',
+        padding: isScrolled ? '1.2rem 4rem' : '2.5rem 4rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
-        backgroundColor: isScrolled ? 'rgba(235, 230, 223, 0.85)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(15px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(26,26,26,0.05)' : 'none'
-      }} className="nav-container">
+        backgroundColor: isScrolled ? 'rgba(235, 230, 223, 0.9)' : 'transparent',
+        backdropFilter: isScrolled ? 'blur(10px)' : 'none',
+      }} className="nav-wrapper">
         
-        {/* Left: Language & Cart */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          <button style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
-            <Globe size={14} /> <span className="nav-lang">EN</span>
-          </button>
-          <button style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
-            <ShoppingBag size={14} /> <span className="nav-cart-label">Bag (0)</span>
-          </button>
+        {/* Left: Desktop Links */}
+        <div className="nav-desktop-links" style={{ display: 'flex', gap: '3rem' }}>
+          {navLinks.map(link => (
+            <Link 
+              key={link.name} 
+              to={link.path}
+              style={{ 
+                fontSize: '0.65rem', 
+                textTransform: 'uppercase', 
+                letterSpacing: '0.2em',
+                color: location.pathname === link.path ? 'var(--accent-gold)' : 'var(--text-dark)',
+                fontWeight: location.pathname === link.path ? '600' : '400'
+              }}
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
 
         {/* Center: Brand Logo */}
         <Link to="/" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
           <h1 style={{ 
-            fontSize: '1.8rem', 
+            fontSize: '1.5rem', 
             fontFamily: 'Playfair Display, serif', 
             fontWeight: '600', 
-            letterSpacing: '0.1em',
+            letterSpacing: '0.15em',
             margin: 0,
             textTransform: 'uppercase'
           }}>
@@ -66,99 +73,68 @@ const Navbar = () => {
           </h1>
         </Link>
 
-        {/* Right: Menu Toggle */}
-        <button 
-          onClick={() => setIsOpen(true)}
-          style={{ display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}
-        >
-          <span className="nav-menu-label">Menu</span>
-          <Menu size={20} strokeWidth={1.5} />
-        </button>
+        {/* Right: Actions */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
+          <button style={{ background: 'none', border: 'none', padding: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <Globe size={15} strokeWidth={1.2} />
+            <span className="nav-action-label" style={{ fontSize: '0.6rem', letterSpacing: '0.1em' }}>EN</span>
+          </button>
+          
+          <button style={{ background: 'none', border: 'none', padding: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <ShoppingBag size={15} strokeWidth={1.2} />
+            <span className="nav-action-label" style={{ fontSize: '0.6rem', letterSpacing: '0.1em' }}>BAG (0)</span>
+          </button>
+
+          {/* Mobile Hamburger (Only visible on mobile via CSS) */}
+          <button 
+            className="nav-mobile-toggle"
+            onClick={() => setIsOpen(true)}
+            style={{ background: 'none', border: 'none', padding: 0, display: 'none' }}
+          >
+            <Menu size={22} strokeWidth={1.2} />
+          </button>
+        </div>
       </nav>
 
-      {/* Full Screen Editorial Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             style={{
               position: 'fixed',
               inset: 0,
               backgroundColor: 'var(--bg-cream)',
               zIndex: 1000,
               display: 'flex',
-              padding: '4rem'
+              flexDirection: 'column',
+              padding: '2rem'
             }}
           >
-            {/* Close Button */}
-            <button 
-              onClick={() => setIsOpen(false)}
-              style={{ position: 'absolute', top: '2.5rem', right: '4rem', zIndex: 1001 }}
-            >
-              <X size={32} strokeWidth={1} />
-            </button>
-
-            {/* Menu Content */}
-            <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center', width: '100%' }}>
-              
-              {/* Left: Navigation Links */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {navLinks.map((link, idx) => (
-                  <motion.div
-                    key={link.name}
-                    initial={{ x: -50, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: idx * 0.1 }}
-                  >
-                    <Link 
-                      to={link.path}
-                      style={{ 
-                        fontSize: 'clamp(3rem, 8vw, 6rem)', 
-                        fontFamily: 'Playfair Display, serif',
-                        display: 'flex',
-                        alignItems: 'baseline',
-                        gap: '2rem',
-                        transition: 'all 0.4s ease'
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.paddingLeft = '2rem'}
-                      onMouseLeave={(e) => e.currentTarget.style.paddingLeft = '0'}
-                    >
-                      <span style={{ fontSize: '0.8rem', fontFamily: 'Inter', opacity: 0.3 }}>{link.id}</span>
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Right: Editorial Image / Info */}
-              <div style={{ paddingLeft: '8rem', borderLeft: '1px solid rgba(26,26,26,0.05)', display: 'flex', flexDirection: 'column', gap: '3rem' }} className="menu-editorial">
-                <div>
-                  <p style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.3em', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Current Mood</p>
-                  <p className="script-font" style={{ fontSize: '3rem', color: 'var(--accent-gold)' }}>Coastal Serenity.</p>
-                </div>
-                <div style={{ maxWidth: '300px' }}>
-                  <p style={{ fontSize: '0.8rem', lineHeight: 1.8, color: 'var(--text-muted)' }}>
-                    Inspired by the timeless dialogue between the ocean waves and the sun-drenched sands of the Red Sea coast.
-                  </p>
-                </div>
-                <div>
-                  <p style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '0.8rem' }}>Contact</p>
-                  <p style={{ fontSize: '0.7rem' }}>studio@berehar.com</p>
-                </div>
-              </div>
-
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <button onClick={() => setIsOpen(false)} style={{ background: 'none', border: 'none' }}>
+                <X size={32} strokeWidth={1} />
+              </button>
+            </div>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '2rem', paddingLeft: '10%' }}>
+              {navLinks.map((link, idx) => (
+                <motion.div key={link.name} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: idx * 0.1 }}>
+                  <Link to={link.path} style={{ fontSize: '2.5rem', fontFamily: 'Playfair Display, serif' }}>{link.name}</Link>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       <style>{`
-        @media (max-width: 768px) {
-          .nav-container { padding: 1.5rem !important; }
-          .nav-lang, .nav-cart-label, .nav-menu-label { display: none; }
-          .menu-editorial { display: none; }
+        @media (max-width: 900px) {
+          .nav-desktop-links { display: none !important; }
+          .nav-mobile-toggle { display: block !important; }
+          .nav-action-label { display: none !important; }
+          .nav-wrapper { padding: 1.5rem !important; }
         }
       `}</style>
     </>

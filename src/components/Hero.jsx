@@ -4,8 +4,14 @@ import modelPng from '../assets/IMG_20260509_100314_592.webp';
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const yParallax = useTransform(scrollY, [0, 500], [0, -100]);
-  const textParallax = useTransform(scrollY, [0, 500], [0, 50]);
+  const yParallax = useTransform(scrollY, [0, 500], [0, -120]);
+  const textParallax = useTransform(scrollY, [0, 500], [0, 60]);
+  const [time, setTime] = useState(new Date().toLocaleTimeString());
+
+  useEffect(() => {
+    const timer = setInterval(() => setTime(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section style={{
@@ -24,7 +30,7 @@ const Hero = () => {
         opacity: 0.05, pointerEvents: 'none', zIndex: 10 
       }} />
 
-      {/* Background Large Text (Parallax) */}
+      {/* Parallax Background Typography */}
       <motion.div
         style={{
           position: 'absolute',
@@ -61,7 +67,7 @@ const Hero = () => {
         </h2>
       </motion.div>
 
-      {/* Main Model (Parallax) */}
+      {/* Main Model with Parallax & Subtle Depth Shadow */}
       <motion.img
         className="hero-model-img"
         initial={{ opacity: 0, scale: 1.05 }}
@@ -74,89 +80,87 @@ const Hero = () => {
           bottom: '-5%',
           left: '50%',
           transform: 'translateX(-50%)',
-          height: '102vh',
+          height: '105vh',
           objectFit: 'contain',
           zIndex: 2,
-          filter: 'drop-shadow(0 30px 80px rgba(0,0,0,0.12))',
+          filter: 'drop-shadow(0 40px 100px rgba(0,0,0,0.15))',
           y: yParallax
         }}
       />
 
-      {/* Editorial Block - Top Left: Brand Identity */}
+      {/* Top Left: Collection & Time Info */}
       <motion.div 
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5, duration: 1 }}
         className="hero-editorial-left" 
-        style={{ position: 'absolute', left: '8%', top: '22%', zIndex: 3 }}
+        style={{ position: 'absolute', left: '6%', top: '22%', zIndex: 3 }}
       >
-        <p style={{ fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.45em', marginBottom: '1.2rem' }}>Vol. 01 / Issue 10</p>
-        <div style={{ width: '40px', height: '1px', backgroundColor: 'var(--text-dark)', marginBottom: '2rem', opacity: 0.3 }} />
-        <h3 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: 0.9, fontFamily: 'Playfair Display, serif', fontWeight: '500', color: 'var(--text-dark)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
+          <p style={{ fontSize: '0.55rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.4em' }}>Asmara, ER (15.3° N)</p>
+          <p style={{ fontSize: '0.55rem', color: 'var(--accent-gold)', fontWeight: '600' }}>{time}</p>
+        </div>
+        <h3 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: 0.85, fontFamily: 'Playfair Display, serif', fontWeight: '500', color: 'var(--text-dark)' }}>
           BERE<br />HAR<br />WEEK
         </h3>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '1.5rem' }}>
-          <p className="script-font" style={{ fontSize: '2.2rem', color: 'var(--accent-gold)' }}>The Collection.</p>
-          <div style={{ width: '60px', height: '1px', backgroundColor: 'var(--accent-gold)', opacity: 0.4 }} />
-        </div>
+        <p className="script-font" style={{ fontSize: '2.5rem', color: 'var(--accent-gold)', marginTop: '1rem', transform: 'rotate(-4deg)', opacity: 0.9 }}>The Silken Path.</p>
       </motion.div>
 
-      {/* Floating Badge - Artistic Element */}
+      {/* Floating Animated Badge */}
       <motion.div 
         animate={{ rotate: 360 }}
-        transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+        transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
         style={{
           position: 'absolute',
-          top: '15%',
+          top: '20%',
           left: '42%',
-          width: '100px',
-          height: '100px',
+          width: '110px',
+          height: '110px',
           borderRadius: '50%',
-          border: '1px solid rgba(26,26,26,0.1)',
+          border: '1px solid rgba(26,26,26,0.08)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          zIndex: 3
+          zIndex: 3,
+          backgroundColor: 'rgba(235, 230, 223, 0.4)',
+          backdropFilter: 'blur(5px)'
         }}
         className="hero-badge"
       >
-        <p style={{ fontSize: '0.45rem', textTransform: 'uppercase', letterSpacing: '0.2em', textAlign: 'center', color: 'var(--text-muted)' }}>
-          Authentic<br/>Atelier<br/>2026
+        <p style={{ fontSize: '0.4rem', textTransform: 'uppercase', letterSpacing: '0.25em', textAlign: 'center', color: 'var(--text-dark)', opacity: 0.6 }}>
+          26 F/W<br/>Atelier<br/>Limited
         </p>
       </motion.div>
 
-      {/* Bottom Right: Collection Specs */}
+      {/* Bottom Right: Technical Specs Overlay */}
       <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.8, duration: 1 }}
         className="hero-editorial-bottom-right" 
-        style={{ position: 'absolute', right: '8%', bottom: '10%', zIndex: 3, textAlign: 'right' }}
+        style={{ position: 'absolute', right: '6%', bottom: '12%', zIndex: 3, textAlign: 'right' }}
       >
-        <p style={{ fontSize: '0.55rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.4em', marginBottom: '0.5rem' }}>Textured Silks</p>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', justifyContent: 'flex-end' }}>
-          <h4 style={{ fontSize: '1.2rem', fontFamily: 'Playfair Display, serif', fontStyle: 'italic' }}>Serie No. 04</h4>
-          <div style={{ width: '30px', height: '1px', backgroundColor: 'var(--text-dark)', opacity: 0.2 }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', justifyContent: 'flex-end', marginBottom: '1rem' }}>
+          <div style={{ width: '40px', height: '1px', backgroundColor: 'var(--text-dark)', opacity: 0.2 }} />
+          <p style={{ fontSize: '0.55rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.4em' }}>100% Raw Mulberry Silk</p>
         </div>
+        <h4 style={{ fontSize: '1.5rem', fontFamily: 'Playfair Display, serif', fontWeight: '400', fontStyle: 'italic' }}>Series No. 04</h4>
       </motion.div>
 
-      {/* Left Bottom: Material Note */}
-      <div className="hero-editorial-bottom-left" style={{ position: 'absolute', left: '8%', bottom: '10%', zIndex: 3, maxWidth: '240px' }}>
-        <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', lineHeight: 1.8, letterSpacing: '0.02em', fontStyle: 'italic' }}>
-          "Each piece captures the rhythm of the waves, crafted with the patience of the tides."
+      {/* Left Bottom: Coordinate Detail */}
+      <div className="hero-editorial-bottom-left" style={{ position: 'absolute', left: '6%', bottom: '12%', zIndex: 3, maxWidth: '280px' }}>
+        <p style={{ fontSize: '0.6rem', color: 'var(--text-muted)', lineHeight: 1.8, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+          Hand-Woven Traditions<br/>
+          <span style={{ opacity: 0.5 }}>Asmara • Paris • Milan</span>
         </p>
       </div>
 
-      {/* Discover UX */}
+      {/* Minimal Scroll Guide */}
       <motion.div 
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        style={{ position: 'absolute', bottom: '2.5rem', left: '50%', transform: 'translateX(-50%)', zIndex: 3, textAlign: 'center' }}
-      >
-        <p style={{ fontSize: '0.5rem', color: 'var(--text-dark)', textTransform: 'uppercase', letterSpacing: '0.6em', opacity: 0.5 }}>
-          DISCOVER
-        </p>
-      </motion.div>
+        animate={{ height: [40, 80, 40], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 2.5, repeat: Infinity }}
+        style={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', width: '1px', backgroundColor: 'var(--text-dark)', zIndex: 3 }}
+      />
 
     </section>
   );
