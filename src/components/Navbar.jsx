@@ -29,7 +29,7 @@ const Navbar = () => {
         position: 'fixed',
         top: 0,
         left: 0,
-        width: '100%',
+        width: '100vw',
         zIndex: 100,
         padding: isScrolled ? '0.8rem 4rem' : '1.8rem 4rem',
         display: 'flex',
@@ -38,11 +38,12 @@ const Navbar = () => {
         transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
         backgroundColor: isScrolled ? 'rgba(235, 230, 223, 0.95)' : 'transparent',
         backdropFilter: isScrolled ? 'blur(10px)' : 'none',
-        height: isScrolled ? '65px' : '90px'
+        height: isScrolled ? '65px' : '90px',
+        overflow: 'hidden'
       }} className="nav-wrapper">
         
         {/* Left Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }} className="nav-left">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flex: 1 }} className="nav-left">
           <button style={{ background: 'none', border: 'none', padding: 0, color: 'var(--text-dark)', cursor: 'pointer' }}>
             <Globe size={14} strokeWidth={1.2} />
           </button>
@@ -52,7 +53,7 @@ const Navbar = () => {
         </div>
 
         {/* Center Logo Assembly */}
-        <Link to="/" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', width: 'auto' }}>
+        <Link to="/" style={{ flex: 1, textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
           <div className="nav-logo-container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <h1 className="nav-logo" style={{ 
               fontSize: '1.1rem', 
@@ -89,7 +90,7 @@ const Navbar = () => {
         </Link>
 
         {/* Right Nav / Toggle */}
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'flex-end' }}>
           <div className="nav-desktop-links" style={{ display: 'flex', gap: '2.5rem' }}>
             {navLinks.map(link => (
               <Link 
@@ -147,9 +148,9 @@ const Navbar = () => {
         @media (max-width: 900px) {
           .nav-desktop-links { display: none !important; }
           .nav-mobile-toggle { display: block !important; }
-          .nav-wrapper { padding: 0.6rem 1.2rem !important; height: 55px !important; }
+          .nav-wrapper { padding: 0.6rem 1.2rem !important; height: 55px !important; width: 100% !important; }
           .nav-logo { font-size: 0.85rem !important; letter-spacing: 0.3em !important; }
-          .nav-amharic-box { display: none !important; } /* Hide complex Amharic lines on small phones */
+          .nav-amharic-box { display: none !important; }
           .nav-left { gap: 1rem !important; }
         }
       `}</style>
