@@ -12,8 +12,18 @@ const Philosophy = () => {
       <section style={{ paddingTop: 'clamp(8rem, 15vh, 15vh)', minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
         <span style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', fontSize: '20vw', color: 'rgba(26,26,26,0.025)', fontFamily: 'Playfair Display, serif', fontWeight: '300', whiteSpace: 'nowrap', pointerEvents: 'none', zIndex: 0 }}>ORIGINS</span>
         <div className="container">
-          <div className="editorial-grid" style={{ alignItems: 'center', position: 'relative', zIndex: 1 }}>
-            <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} style={{ gridColumn: 'span 6' }}>
+          <div className="editorial-grid philosophy-chapter-1" style={{ alignItems: 'center', position: 'relative', zIndex: 1 }}>
+            
+            {/* Image (Ordered for Mobile Top) */}
+            <motion.div initial={{ opacity: 0, scale: 0.92 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1.5 }} 
+              style={{ position: 'relative', gridColumn: 'span 6', order: 2 }}>
+              <div style={{ position: 'absolute', top: '-3rem', right: '-3rem', width: 'clamp(100px, 20vw, 220px)', height: 'clamp(100px, 20vw, 220px)', backgroundColor: 'rgba(213,200,186,0.5)', borderRadius: '50%', zIndex: 0 }} />
+              <img src={storyImg} alt="Bere Har Philosophy" loading="lazy" style={{ width: '100%', height: 'auto', maxHeight: '700px', objectFit: 'cover', position: 'relative', zIndex: 1 }} />
+            </motion.div>
+
+            {/* Text */}
+            <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} 
+              style={{ gridColumn: 'span 6', order: 1 }}>
               <p style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.3em', color: 'var(--text-muted)', marginBottom: '2rem' }}>Our Philosophy — 01</p>
               <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', lineHeight: 1.05, marginBottom: '2.5rem', fontFamily: 'Playfair Display, serif', fontWeight: '400' }}>Where Sand<br/>Meets Silk</h1>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.9, maxWidth: '420px', marginBottom: '2.5rem' }}>
@@ -21,10 +31,7 @@ const Philosophy = () => {
               </p>
               <p className="script-font" style={{ fontSize: '2.5rem', transform: 'rotate(-2deg)', display: 'inline-block' }}>Stay effortless.</p>
             </motion.div>
-            <motion.div initial={{ opacity: 0, scale: 0.92 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1.5 }} style={{ position: 'relative', gridColumn: 'span 6' }}>
-              <div style={{ position: 'absolute', top: '-3rem', right: '-3rem', width: 'clamp(100px, 20vw, 220px)', height: 'clamp(100px, 20vw, 220px)', backgroundColor: 'rgba(213,200,186,0.5)', borderRadius: '50%', zIndex: 0 }} />
-              <img src={storyImg} alt="Bere Har Philosophy" loading="lazy" style={{ width: '100%', height: 'auto', maxHeight: '700px', objectFit: 'cover', position: 'relative', zIndex: 1 }} />
-            </motion.div>
+
           </div>
         </div>
       </section>
@@ -92,11 +99,11 @@ const Philosophy = () => {
       {/* Chapter 5: Founders Quote */}
       <section style={{ padding: '0 0 clamp(4rem, 10rem, 10rem) 0' }}>
         <div className="container">
-          <div className="editorial-grid" style={{ alignItems: 'center' }}>
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} style={{ gridColumn: 'span 6' }}>
+          <div className="editorial-grid philosophy-chapter-5" style={{ alignItems: 'center' }}>
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} style={{ gridColumn: 'span 6', order: 1 }}>
               <img src={imgAtelier} alt="Atelier" loading="lazy" style={{ width: '100%', height: 'auto', maxHeight: '600px', objectFit: 'cover' }} />
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} style={{ gridColumn: 'span 6' }}>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} style={{ gridColumn: 'span 6', order: 2 }}>
               <p style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.3em', color: 'var(--text-muted)', marginBottom: '2rem' }}>Our Promise</p>
               <p style={{ fontSize: 'clamp(1.2rem, 3vw, 1.6rem)', fontFamily: 'Playfair Display, serif', fontWeight: '300', lineHeight: 1.6, marginBottom: '3rem' }}>
                 "We do not make fashion. We make pieces that belong to the places you have been."
@@ -106,6 +113,18 @@ const Philosophy = () => {
           </div>
         </div>
       </section>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .philosophy-chapter-1 { flex-direction: column !important; }
+          .philosophy-chapter-1 > div:first-child { order: 1 !important; margin-bottom: 2rem !important; }
+          .philosophy-chapter-1 > div:last-child { order: 2 !important; }
+
+          .philosophy-chapter-5 { flex-direction: column !important; }
+          .philosophy-chapter-5 > div:first-child { order: 1 !important; margin-bottom: 2rem !important; }
+          .philosophy-chapter-5 > div:last-child { order: 2 !important; }
+        }
+      `}</style>
     </div>
   );
 };

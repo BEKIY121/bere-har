@@ -46,19 +46,8 @@ const Atelier = () => {
       {/* Intro Section */}
       <section style={{ padding: 'clamp(4rem, 10rem, 10rem) 0' }}>
         <div className="container">
-          <div className="editorial-grid" style={{ alignItems: 'center' }}>
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              style={{ gridColumn: 'span 5' }}
-            >
-              <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '2rem' }}>Patience is our<br/>Main Ingredient.</h2>
-              <p style={{ color: 'var(--text-muted)', lineHeight: 1.9 }}>
-                Every Bere Har garment begins its journey as a single thread of raw, organic silk. In our Asmara atelier, we honor the slow traditions of hand-weaving that have been passed down through generations.
-              </p>
-            </motion.div>
-            <div style={{ gridColumn: 'span 7' }}>
+          <div className="editorial-grid atelier-intro" style={{ alignItems: 'center' }}>
+            <div style={{ gridColumn: 'span 7', order: 1 }}>
               <motion.img 
                 initial={{ opacity: 0, scale: 1.05 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -70,6 +59,17 @@ const Atelier = () => {
                 style={{ width: '100%', height: 'auto', maxHeight: '600px', objectFit: 'cover' }} 
               />
             </div>
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              style={{ gridColumn: 'span 5', order: 2 }}
+            >
+              <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '2rem' }}>Patience is our<br/>Main Ingredient.</h2>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.9 }}>
+                Every Bere Har garment begins its journey as a single thread of raw, organic silk. In our Asmara atelier, we honor the slow traditions of hand-weaving that have been passed down through generations.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -89,7 +89,7 @@ const Atelier = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2 }}
-                style={{ gridColumn: 'span 4', textAlign: 'center' }}
+                style={{ gridColumn: 'span 4', textAlign: 'center', marginBottom: '2rem' }}
               >
                 <p style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.2em', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Pillar {idx + 1}</p>
                 <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem', fontFamily: 'Playfair Display, serif' }}>{pillar.title}</h3>
@@ -104,8 +104,8 @@ const Atelier = () => {
       {/* Visual Quote Section */}
       <section style={{ padding: 'clamp(4rem, 10rem, 10rem) 0' }}>
         <div className="container">
-          <div className="editorial-grid" style={{ alignItems: 'center' }}>
-            <div style={{ gridColumn: 'span 7' }}>
+          <div className="editorial-grid atelier-quote" style={{ alignItems: 'center' }}>
+            <div style={{ gridColumn: 'span 7', order: 1 }}>
               <motion.img 
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -120,7 +120,7 @@ const Atelier = () => {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              style={{ gridColumn: 'span 5', paddingLeft: 'clamp(0px, 4vw, 4rem)' }}
+              style={{ gridColumn: 'span 5', paddingLeft: 'clamp(0px, 4vw, 4rem)', order: 2 }}
             >
               <p className="script-font" style={{ fontSize: '3rem', color: 'var(--text-dark)', marginBottom: '2rem' }}>Art in motion.</p>
               <p style={{ fontSize: '1.2rem', lineHeight: 1.7, fontFamily: 'Playfair Display, serif', fontStyle: 'italic', color: 'var(--text-muted)' }}>
@@ -142,7 +142,7 @@ const Atelier = () => {
               { val: '100%', label: 'Organic Silk' },
               { val: 'ZERO', label: 'Waste Policy' }
             ].map((stat) => (
-              <div key={stat.label} style={{ gridColumn: 'span 3', textAlign: 'center' }}>
+              <div key={stat.label} style={{ gridColumn: 'span 3', textAlign: 'center', marginBottom: '2rem' }}>
                 <h4 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontFamily: 'Playfair Display, serif' }}>{stat.val}</h4>
                 <p style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.2em', opacity: 0.6 }}>{stat.label}</p>
               </div>
@@ -152,6 +152,14 @@ const Atelier = () => {
       </section>
 
       <Footer />
+
+      <style>{`
+        @media (max-width: 768px) {
+          .atelier-intro, .atelier-quote { flex-direction: column !important; }
+          .atelier-intro > div:first-child, .atelier-quote > div:first-child { order: 1 !important; margin-bottom: 2rem !important; }
+          .atelier-intro > div:last-child, .atelier-quote > div:last-child { order: 2 !important; }
+        }
+      `}</style>
     </div>
   );
 };
