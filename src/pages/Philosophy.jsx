@@ -29,7 +29,10 @@ const Philosophy = () => {
               <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.9, maxWidth: '420px', marginBottom: '2.5rem' }}>
                 Bere Har was born from a simple desire: to capture the effortless elegance of coastal living and translate it into wearable art.
               </p>
-              <p className="script-font" style={{ fontSize: '2.5rem', transform: 'rotate(-2deg)', display: 'inline-block' }}>Stay effortless.</p>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+                <p className="script-font" style={{ fontSize: '2.5rem', transform: 'rotate(-2deg)', display: 'inline-block' }}>Stay effortless.</p>
+                <span style={{ fontSize: '1rem', color: 'var(--accent-gold)', opacity: 0.4 }}>ቤሬ ሀር</span>
+              </div>
             </motion.div>
 
           </div>
@@ -68,6 +71,9 @@ const Philosophy = () => {
       <section style={{ position: 'relative', height: 'clamp(400px, 80vh, 80vh)', overflow: 'hidden' }}>
         <img src={img726} alt="Campaign" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(235,230,223,0.3) 0%, transparent 60%)' }} />
+        <div style={{ position: 'absolute', top: '10%', right: '5%', writingMode: 'vertical-rl', zIndex: 1 }}>
+          <span style={{ fontSize: '12vh', color: 'rgba(255,255,255,0.1)', fontFamily: 'serif' }}>ቤሬ ሀር</span>
+        </div>
         <div style={{ position: 'absolute', bottom: 'clamp(2rem, 4rem, 4rem)', left: '50%', transform: 'translateX(-50%)', textAlign: 'center', width: '90%' }}>
           <p className="script-font" style={{ fontSize: 'clamp(3rem, 10vw, 5rem)', color: '#fff', textShadow: '0 2px 20px rgba(0,0,0,0.2)' }}>The Bere Har Way.</p>
         </div>

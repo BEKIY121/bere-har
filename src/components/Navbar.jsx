@@ -31,14 +31,14 @@ const Navbar = () => {
         left: 0,
         width: '100%',
         zIndex: 100,
-        padding: isScrolled ? '1rem 4rem' : '2.2rem 4rem',
+        padding: isScrolled ? '0.8rem 4rem' : '2.2rem 4rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
         backgroundColor: isScrolled ? 'rgba(235, 230, 223, 0.95)' : 'transparent',
         backdropFilter: isScrolled ? 'blur(10px)' : 'none',
-        height: isScrolled ? '70px' : '100px'
+        height: isScrolled ? '70px' : '110px'
       }} className="nav-wrapper">
         
         {/* Left Actions */}
@@ -51,9 +51,9 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Center Logo - Re-designed for high-end feel */}
+        {/* Center Logo - Integrated with Amharic Script */}
         <Link to="/" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
-          <div className="nav-logo-container" style={{ textAlign: 'center' }}>
+          <div className="nav-logo-container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <h1 className="nav-logo" style={{ 
               fontSize: '1.2rem', 
               fontFamily: 'Playfair Display, serif', 
@@ -66,13 +66,25 @@ const Navbar = () => {
             }}>
               Bere Har
             </h1>
-            <div className="logo-underline" style={{ 
-              width: '20px', 
-              height: '1px', 
-              backgroundColor: 'var(--accent-gold)', 
-              margin: '0.4rem auto 0',
-              opacity: 0.6
-            }} />
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.8rem', 
+              marginTop: '0.4rem',
+              width: '100%',
+              justifyContent: 'center'
+            }}>
+              <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--accent-gold)', opacity: 0.3 }} />
+              <span style={{ 
+                fontSize: '0.65rem', 
+                color: 'var(--text-muted)', 
+                opacity: 0.8,
+                letterSpacing: '0.1em'
+              }}>
+                ቤሬ ሀር
+              </span>
+              <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--accent-gold)', opacity: 0.3 }} />
+            </div>
           </div>
         </Link>
 
@@ -135,9 +147,8 @@ const Navbar = () => {
         @media (max-width: 900px) {
           .nav-desktop-links { display: none !important; }
           .nav-mobile-toggle { display: block !important; }
-          .nav-wrapper { padding: 0.8rem 1.5rem !important; height: 60px !important; }
+          .nav-wrapper { padding: 0.8rem 1.5rem !important; height: 65px !important; }
           .nav-logo { font-size: 0.9rem !important; letter-spacing: 0.35em !important; }
-          .logo-underline { margin-top: 0.2rem !important; width: 15px !important; }
           .nav-left { gap: 1.2rem !important; }
         }
       `}</style>
