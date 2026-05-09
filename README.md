@@ -43,3 +43,4 @@ npm run build
 ---
 
 © 2026 Bere Har. All rights reserved.
+# bere-har
