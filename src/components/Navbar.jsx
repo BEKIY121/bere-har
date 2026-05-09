@@ -31,34 +31,34 @@ const Navbar = () => {
         left: 0,
         width: '100%',
         zIndex: 100,
-        padding: isScrolled ? '0.8rem 4rem' : '2.2rem 4rem',
+        padding: isScrolled ? '0.8rem 4rem' : '1.8rem 4rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
         backgroundColor: isScrolled ? 'rgba(235, 230, 223, 0.95)' : 'transparent',
         backdropFilter: isScrolled ? 'blur(10px)' : 'none',
-        height: isScrolled ? '70px' : '110px'
+        height: isScrolled ? '65px' : '90px'
       }} className="nav-wrapper">
         
         {/* Left Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }} className="nav-left">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }} className="nav-left">
           <button style={{ background: 'none', border: 'none', padding: 0, color: 'var(--text-dark)', cursor: 'pointer' }}>
-            <Globe size={15} strokeWidth={1.2} />
+            <Globe size={14} strokeWidth={1.2} />
           </button>
           <button style={{ background: 'none', border: 'none', padding: 0, color: 'var(--text-dark)', cursor: 'pointer' }}>
-            <ShoppingBag size={15} strokeWidth={1.2} />
+            <ShoppingBag size={14} strokeWidth={1.2} />
           </button>
         </div>
 
-        {/* Center Logo - Integrated with Amharic Script */}
-        <Link to="/" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+        {/* Center Logo Assembly */}
+        <Link to="/" style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', width: 'auto' }}>
           <div className="nav-logo-container" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <h1 className="nav-logo" style={{ 
-              fontSize: '1.2rem', 
+              fontSize: '1.1rem', 
               fontFamily: 'Playfair Display, serif', 
               fontWeight: '500', 
-              letterSpacing: '0.5em',
+              letterSpacing: '0.45em',
               margin: 0,
               textTransform: 'uppercase',
               lineHeight: 1,
@@ -66,39 +66,39 @@ const Navbar = () => {
             }}>
               Bere Har
             </h1>
-            <div style={{ 
+            <div className="nav-amharic-box" style={{ 
               display: 'flex', 
               alignItems: 'center', 
-              gap: '0.8rem', 
-              marginTop: '0.4rem',
+              gap: '0.6rem', 
+              marginTop: '0.3rem',
               width: '100%',
               justifyContent: 'center'
             }}>
-              <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--accent-gold)', opacity: 0.3 }} />
+              <div style={{ flex: 1, height: '0.5px', backgroundColor: 'var(--accent-gold)', opacity: 0.2 }} />
               <span style={{ 
-                fontSize: '0.65rem', 
+                fontSize: '0.55rem', 
                 color: 'var(--text-muted)', 
-                opacity: 0.8,
-                letterSpacing: '0.1em'
+                opacity: 0.7,
+                letterSpacing: '0.05em'
               }}>
                 ቤሬ ሀር
               </span>
-              <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--accent-gold)', opacity: 0.3 }} />
+              <div style={{ flex: 1, height: '0.5px', backgroundColor: 'var(--accent-gold)', opacity: 0.2 }} />
             </div>
           </div>
         </Link>
 
         {/* Right Nav / Toggle */}
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div className="nav-desktop-links" style={{ display: 'flex', gap: '3rem' }}>
+          <div className="nav-desktop-links" style={{ display: 'flex', gap: '2.5rem' }}>
             {navLinks.map(link => (
               <Link 
                 key={link.name} 
                 to={link.path} 
                 style={{ 
-                  fontSize: '0.6rem', 
+                  fontSize: '0.58rem', 
                   textTransform: 'uppercase', 
-                  letterSpacing: '0.3em',
+                  letterSpacing: '0.25em',
                   color: location.pathname === link.path ? 'var(--accent-gold)' : 'var(--text-dark)',
                   transition: 'color 0.3s ease'
                 }}
@@ -147,9 +147,10 @@ const Navbar = () => {
         @media (max-width: 900px) {
           .nav-desktop-links { display: none !important; }
           .nav-mobile-toggle { display: block !important; }
-          .nav-wrapper { padding: 0.8rem 1.5rem !important; height: 65px !important; }
-          .nav-logo { font-size: 0.9rem !important; letter-spacing: 0.35em !important; }
-          .nav-left { gap: 1.2rem !important; }
+          .nav-wrapper { padding: 0.6rem 1.2rem !important; height: 55px !important; }
+          .nav-logo { font-size: 0.85rem !important; letter-spacing: 0.3em !important; }
+          .nav-amharic-box { display: none !important; } /* Hide complex Amharic lines on small phones */
+          .nav-left { gap: 1rem !important; }
         }
       `}</style>
     </>
