@@ -25,12 +25,12 @@ const Hero = () => {
       alignItems: 'center',
       justifyContent: 'center'
     }}>
-      
+
       {/* High-End Grain Overlay */}
       <div style={{
-        position: 'absolute', inset: 0, 
-        backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")', 
-        opacity: 0.04, pointerEvents: 'none', zIndex: 10 
+        position: 'absolute', inset: 0,
+        backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")',
+        opacity: 0.04, pointerEvents: 'none', zIndex: 10
       }} />
 
       {/* Amharic Watermark - Cultural Identity */}
@@ -86,7 +86,7 @@ const Hero = () => {
             filter: 'drop-shadow(0 50px 100px rgba(0,0,0,0.08))',
           }}
         />
-        
+
         {/* Silk Badge Overlay */}
         <div style={{
           position: 'absolute',
@@ -108,25 +108,25 @@ const Hero = () => {
       </motion.div>
 
       {/* Editorial Frame */}
-      
+
       {/* Top Left: Geographic & Time */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1.5 }}
         style={{ position: 'absolute', left: '4rem', top: '22%', zIndex: 3 }}
         className="hero-ui-top-left"
       >
-        <p style={{ fontSize: '0.55rem', letterSpacing: '0.4em', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>{time} ASMARA</p>
+        <p style={{ fontSize: '0.55rem', letterSpacing: '0.4em', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>{time} ArbaMinch, ETHIOPIA</p>
         <p style={{ fontSize: '0.9rem', color: 'var(--text-dark)', fontFamily: 'serif', marginTop: '0.5rem' }}>ቤሬ ሀር</p>
       </motion.div>
 
       {/* Center Left: Promotion Block */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8, duration: 1.5 }}
         style={{ position: 'absolute', left: '4rem', top: '55%', transform: 'translateY(-50%)', zIndex: 3, maxWidth: '200px' }}
         className="hero-ui-center-left"
       >
         <h2 style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', lineHeight: 0.9, fontFamily: 'Playfair Display, serif', fontWeight: '500', marginBottom: '1.5rem' }}>
-          SILK<br/>WEEK
+          SILK<br />WEEK
         </h2>
         <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', lineHeight: 1.8, fontStyle: 'italic' }}>
           Crafted with weightless Mulberry silk for the coastal spirit.
@@ -135,17 +135,17 @@ const Hero = () => {
       </motion.div>
 
       {/* Bottom Right: Material Spec */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 1.5 }}
         style={{ position: 'absolute', right: '4rem', bottom: '10%', zIndex: 3, textAlign: 'right' }}
         className="hero-ui-bottom-right"
       >
         <p style={{ fontSize: '0.55rem', letterSpacing: '0.4em', color: 'var(--text-muted)', marginBottom: '0.8rem' }}>100% MULBERRY SILK</p>
-        <p style={{ fontSize: '0.7rem', color: 'var(--text-dark)', opacity: 0.6 }}>Hand-Woven in Asmara</p>
+        <p style={{ fontSize: '0.7rem', color: 'var(--text-dark)', opacity: 0.6 }}>Hand-Woven in Arba Minch</p>
       </motion.div>
 
       {/* Scroll Guide */}
-      <motion.div 
+      <motion.div
         animate={{ y: [0, 15, 0] }}
         transition={{ duration: 3, repeat: Infinity }}
         style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}
