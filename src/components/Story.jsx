@@ -22,7 +22,7 @@ const Story = () => {
             <div style={{ overflow: 'hidden', position: 'relative', zIndex: 1 }}>
               <img 
                 src={storyImg} 
-                alt="Bere Har Campaign" 
+                alt="Mulberry Silk Craft" 
                 loading="lazy"
                 style={{ width: '100%', height: 'auto', maxHeight: '650px', objectFit: 'cover' }} 
               />
@@ -41,8 +41,8 @@ const Story = () => {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
               }}
             >
-              <span style={{ fontSize: '0.5rem', letterSpacing: '0.2em', textTransform: 'uppercase', textAlign: 'center', lineHeight: 1.4 }}>
-                Atelier<br/>Handmade
+              <span style={{ fontSize: '0.45rem', letterSpacing: '0.25em', textTransform: 'uppercase', textAlign: 'center', lineHeight: 1.4 }}>
+                100% Raw<br/>Mulberry<br/>Silk
               </span>
             </motion.div>
           </motion.div>
@@ -65,20 +65,20 @@ const Story = () => {
             }}
           >
             <p style={{ fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '0.4em', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-              Our Philosophy
+              The Essence of Silk
             </p>
             <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontFamily: 'Playfair Display, serif', fontWeight: '400', lineHeight: 1, marginBottom: '2rem', color: 'var(--text-dark)' }}>
-              Where Sand<br/>Meets Silk
+              Weightless<br/>by Design
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.9, marginBottom: '1.5rem', maxWidth: '400px' }}>
-              We believe that true luxury lies in absolute comfort and unrestricted movement. Our artistic resort wear is born from the desire to create garments that feel as light as a coastal breeze.
+              Our signature Mulberry silk is meticulously hand-woven to achieve a texture that feels almost nonexistent against the skin. It is the purest expression of weightless luxury.
             </p>
             <p className="script-font" style={{ fontSize: '2.5rem', transform: 'rotate(-4deg)', display: 'inline-block', marginBottom: '2.5rem', color: 'var(--accent-gold)' }}>
-              Stay effortless.
+              Silk that breathes.
             </p>
             <br/>
             <Link to="/philosophy" className="editorial-link">
-              Discover the Full Story →
+              Discover the Silken Path →
             </Link>
           </motion.div>
         </div>
@@ -86,22 +86,9 @@ const Story = () => {
       
       <style>{`
         @media (max-width: 768px) {
-          .story-layout {
-            flex-direction: column !important;
-            align-items: flex-start !important;
-          }
-          .story-image-wrapper {
-            flex: 0 0 100% !important;
-            width: 100% !important;
-            margin-bottom: 0 !important;
-          }
-          .story-text-wrapper {
-            flex: 0 0 100% !important;
-            width: 90% !important;
-            margin-left: 5% !important;
-            margin-top: -4rem !important; /* Overlap upwards onto image */
-            padding: 2.5rem 1.5rem !important;
-          }
+          .story-layout { flex-direction: column !important; }
+          .story-image-wrapper { width: 100% !important; margin-bottom: 0 !important; }
+          .story-text-wrapper { width: 90% !important; margin-left: 5% !important; margin-top: -4rem !important; padding: 2.5rem 1.5rem !important; }
         }
       `}</style>
     </section>

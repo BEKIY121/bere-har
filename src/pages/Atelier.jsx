@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import imgCraft1 from '../assets/IMG_20260509_100315_415.webp';
 import imgCraft2 from '../assets/IMG_20260509_100308_708.webp';
 // import imgAtelier from '../assets/IMG_20260509_100308_479.webp';
-import imgAtelier from '../assets/IMG_20260509_100021_627.webp';
+import imgAtelier from '../assets/IMG_20260509_100021_627.webp'; 
 
 import Footer from '../components/Footer';
 
@@ -32,7 +32,7 @@ const Atelier = () => {
             animate={{ opacity: 1, y: 0 }}
             style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.4em', marginBottom: '1.5rem' }}
           >
-            The Hands Behind the Silk
+            The Hands Behind the Pure Mulberry Silk
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -67,9 +67,9 @@ const Atelier = () => {
               viewport={{ once: true }}
               style={{ gridColumn: 'span 5', order: 2 }}
             >
-              <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '2rem' }}>Patience is our<br />Main Ingredient.</h2>
+              <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '2rem' }}>Pure Mulberry Silk.<br />The Masterpiece.</h2>
               <p style={{ color: 'var(--text-muted)', lineHeight: 1.9 }}>
-                Every Bere Har garment begins its journey as a single thread of raw, organic silk. In our Asmara atelier, we honor the slow traditions of hand-weaving that have been passed down through generations.
+                Every Bere Har garment begins its journey as a single thread of raw, organic Mulberry silk. In our Asmara atelier, we honor the slow traditions of hand-weaving that have been passed down through generations. The result is a fabric so light it feels like a second skin.
               </p>
             </motion.div>
           </div>
@@ -81,9 +81,9 @@ const Atelier = () => {
         <div className="container">
           <div className="editorial-grid">
             {[
-              { title: 'The Sun', body: 'Our colors are cured under the East African sun, ensuring a depth and vibrance that chemical processes can never replicate.' },
-              { title: 'The Waves', body: 'Patterns are inspired by the rhythmic movement of the Red Sea, captured in fluid silk drapes.' },
-              { title: 'The Wind', body: 'The weave is engineered for the ultimate breathability, allowing the coastal breeze to pass through the fabric.' }
+              { title: 'The Silk', body: 'We source only the finest Mulberry silk, known for its incredible strength and natural luster that chemical fibers cannot match.' },
+              { title: 'The Loom', body: 'Each thread is hand-woven on traditional wooden looms, creating a unique texture that celebrates the artisan\'s touch.' },
+              { title: 'The Color', body: 'Our silks are dyed using organic pigments derived from coastal minerals and sun-dried to lock in vibrant, natural hues.' }
             ].map((pillar, idx) => (
               <motion.div
                 key={pillar.title}
@@ -124,9 +124,9 @@ const Atelier = () => {
               viewport={{ once: true }}
               style={{ gridColumn: 'span 5', paddingLeft: 'clamp(0px, 4vw, 4rem)', order: 2 }}
             >
-              <p className="script-font" style={{ fontSize: '3rem', color: 'var(--text-dark)', marginBottom: '2rem' }}>Art in motion.</p>
+              <p className="script-font" style={{ fontSize: '3rem', color: 'var(--text-dark)', marginBottom: '2rem' }}>Silk in motion.</p>
               <p style={{ fontSize: '1.2rem', lineHeight: 1.7, fontFamily: 'Playfair Display, serif', fontStyle: 'italic', color: 'var(--text-muted)' }}>
-                "We believe that a garment should not only look like art, but it should be made with the same soul as a painting."
+                "The silk does not just drape; it tells the story of the hands that wove it and the sun that dried it."
               </p>
               <p style={{ marginTop: '2rem', fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>— Master Weaver, Bere Har</p>
             </motion.div>
@@ -141,8 +141,8 @@ const Atelier = () => {
             {[
               { val: '120+', label: 'Hours per Gown' },
               { val: '08', label: 'Artisan Families' },
-              { val: '100%', label: 'Organic Silk' },
-              { val: 'ZERO', label: 'Waste Policy' }
+              { val: '100%', label: 'Pure Mulberry Silk' },
+              { val: 'ZERO', label: 'Synthetic Content' }
             ].map((stat) => (
               <div key={stat.label} style={{ gridColumn: 'span 3', textAlign: 'center', marginBottom: '2rem' }}>
                 <h4 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', fontFamily: 'Playfair Display, serif' }}>{stat.val}</h4>
