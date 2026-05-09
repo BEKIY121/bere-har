@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import storyImg from '../assets/IMG_20260509_100314_517.jpg';
+import storyImg from '../assets/IMG_20260509_100314_517.webp';
 import { Link } from 'react-router-dom';
 
 const Story = () => {
   return (
-    <section id="philosophy" style={{ background: 'var(--bg-cream)', padding: '10rem 0' }}>
+    <section id="philosophy" style={{ background: 'var(--bg-cream)', padding: 'clamp(4rem, 10vw, 10rem) 0' }}>
       <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8rem', alignItems: 'center' }}>
+        <div className="editorial-grid" style={{ alignItems: 'center' }}>
 
           {/* Left: Image */}
           <motion.div
@@ -15,11 +15,16 @@ const Story = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2 }}
             viewport={{ once: true }}
-            style={{ position: 'relative' }}
+            style={{ position: 'relative', gridColumn: 'span 6' }}
           >
-            <div style={{ position: 'absolute', top: '-2rem', left: '-2rem', width: '180px', height: '180px', backgroundColor: 'rgba(213,200,186,0.4)', borderRadius: '50%', zIndex: 0 }} />
+            <div style={{ position: 'absolute', top: '-2rem', left: '-2rem', width: 'clamp(100px, 15vw, 180px)', height: 'clamp(100px, 15vw, 180px)', backgroundColor: 'rgba(213,200,186,0.4)', borderRadius: '50%', zIndex: 0 }} />
             <div style={{ overflow: 'hidden', position: 'relative', zIndex: 1 }}>
-              <img src={storyImg} alt="Bere Har Campaign" style={{ width: '100%', height: '700px', objectFit: 'cover' }} />
+              <img 
+                src={storyImg} 
+                alt="Bere Har Campaign" 
+                loading="lazy"
+                style={{ width: '100%', height: 'auto', maxHeight: '700px', objectFit: 'cover' }} 
+              />
             </div>
 
             {/* Spinning Badge */}
@@ -28,7 +33,7 @@ const Story = () => {
               transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
               style={{
                 position: 'absolute', bottom: '-2rem', right: '-2rem',
-                width: '120px', height: '120px', borderRadius: '50%',
+                width: 'clamp(80px, 10vw, 120px)', height: 'clamp(80px, 10vw, 120px)', borderRadius: '50%',
                 border: '1px solid rgba(26,26,26,0.2)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2,
                 backgroundColor: 'var(--bg-cream)'
@@ -46,11 +51,12 @@ const Story = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, delay: 0.2 }}
             viewport={{ once: true }}
+            style={{ gridColumn: 'span 6' }}
           >
             <p style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.3em', color: 'var(--text-muted)', marginBottom: '2rem' }}>
               Our Philosophy
             </p>
-            <h2 style={{ fontSize: '3.5rem', fontFamily: 'Playfair Display, serif', fontWeight: '400', lineHeight: 1.1, marginBottom: '2rem', color: 'var(--text-dark)' }}>
+            <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontFamily: 'Playfair Display, serif', fontWeight: '400', lineHeight: 1.1, marginBottom: '2rem', color: 'var(--text-dark)' }}>
               Where Sand<br/>Meets Silk
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.9, marginBottom: '1.5rem' }}>

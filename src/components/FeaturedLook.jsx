@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import img1 from '../assets/IMG_20260509_100021_627.jpg';
-import img2 from '../assets/IMG_20260509_100022_237.jpg';
-import img3 from '../assets/IMG_20260509_100308_657.jpg';
+import img1 from '../assets/IMG_20260509_100021_627.webp';
+import img2 from '../assets/IMG_20260509_100022_237.webp';
+import img3 from '../assets/IMG_20260509_100308_657.webp';
 
 const FeaturedLook = () => {
   return (

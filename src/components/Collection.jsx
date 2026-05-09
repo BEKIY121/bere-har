@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import img1 from '../assets/IMG_20260509_100308_041.jpg';
-import img2 from '../assets/IMG_20260509_100308_148.jpg';
-import img3 from '../assets/IMG_20260509_100308_397.jpg';
-import img4 from '../assets/IMG_20260509_100308_424.jpg';
+import img1 from '../assets/IMG_20260509_100308_041.webp';
+import img2 from '../assets/IMG_20260509_100308_148.webp';
+import img3 from '../assets/IMG_20260509_100308_397.webp';
+import img4 from '../assets/IMG_20260509_100308_424.webp';
 
 const products = [
   { id: 1, name: 'Ocean Breeze Wrap', category: 'Resort Wear', price: '$850', image: img1 },
@@ -15,14 +15,14 @@ const products = [
 
 const Collection = () => {
   return (
-    <section id="collection" style={{ background: 'var(--bg-cream)', padding: '8rem 0' }}>
+    <section id="collection" style={{ background: 'var(--bg-cream)', padding: 'clamp(4rem, 8vw, 8rem) 0' }}>
       <div className="container">
 
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem', flexWrap: 'wrap', gap: '1.5rem' }}>
           <div>
             <p style={{ fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.3em', color: 'var(--text-muted)', marginBottom: '0.8rem' }}>The Collection</p>
-            <h2 style={{ fontSize: '3.5rem', fontFamily: 'Playfair Display, serif', fontWeight: '400', color: 'var(--text-dark)' }}>
+            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: 'Playfair Display, serif', fontWeight: '400', color: 'var(--text-dark)' }}>
               Coastal Collections
             </h2>
           </div>
@@ -32,7 +32,11 @@ const Collection = () => {
         </div>
 
         {/* Product Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+          gap: '2rem' 
+        }}>
           {products.map((product, idx) => (
             <motion.div
               key={product.id}
@@ -47,15 +51,12 @@ const Collection = () => {
                 <img
                   src={product.image}
                   alt={product.name}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.8s ease' }}
-                  onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.04)'}
-                  onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                  loading="lazy"
+                  className="img-zoom"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 {/* Hover CTA */}
-                <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', padding: '1.2rem', background: 'linear-gradient(to top, rgba(26,26,26,0.4), transparent)', opacity: 0, transition: 'opacity 0.4s ease' }}
-                  onMouseEnter={(e) => e.currentTarget.style.opacity = 1}
-                  onMouseLeave={(e) => e.currentTarget.style.opacity = 0}
-                >
+                <div className="hover-cta" style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', padding: '1.2rem', background: 'linear-gradient(to top, rgba(26,26,26,0.4), transparent)', opacity: 0, transition: 'opacity 0.4s ease' }}>
                   <span style={{ color: '#fff', fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.15em' }}>Quick View</span>
                 </div>
               </div>
@@ -72,6 +73,14 @@ const Collection = () => {
           ))}
         </div>
       </div>
+      <style>{`
+        @media (hover: hover) {
+          div:hover > .hover-cta { opacity: 1 !important; }
+        }
+        @media (max-width: 600px) {
+          .hover-cta { display: none; }
+        }
+      `}</style>
     </section>
   );
 };

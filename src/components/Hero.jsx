@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import modelPng from '../assets/IMG_20260509_100314_592.png';
+import modelPng from '../assets/IMG_20260509_100314_592.webp';
 
 const Hero = () => {
   return (

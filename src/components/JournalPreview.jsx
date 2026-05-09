@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import img1 from '../assets/IMG_20260509_100308_708.jpg';
-import img2 from '../assets/IMG_20260509_100101_106.jpg';
+import img1 from '../assets/IMG_20260509_100308_708.webp';
+import img2 from '../assets/IMG_20260509_100101_106.webp';
 
 const JournalPreview = () => {
   return (

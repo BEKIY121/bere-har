@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import img1 from '../assets/IMG_20260509_100308_041.jpg';
-import img2 from '../assets/IMG_20260509_100308_148.jpg';
-import img3 from '../assets/IMG_20260509_100308_397.jpg';
-import img4 from '../assets/IMG_20260509_100308_424.jpg';
-import img5 from '../assets/IMG_20260509_100308_657.jpg';
-import img6 from '../assets/IMG_20260509_100308_670.jpg';
-import img7 from '../assets/IMG_20260509_100308_749.jpg';
-import img8 from '../assets/IMG_20260509_100314_726.jpg';
+import img1 from '../assets/IMG_20260509_100308_041.webp';
+import img2 from '../assets/IMG_20260509_100308_148.webp';
+import img3 from '../assets/IMG_20260509_100308_397.webp';
+import img4 from '../assets/IMG_20260509_100308_424.webp';
+import img5 from '../assets/IMG_20260509_100308_657.webp';
+import img6 from '../assets/IMG_20260509_100308_670.webp';
+import img7 from '../assets/IMG_20260509_100308_749.webp';
+import img8 from '../assets/IMG_20260509_100314_726.webp';
 
 const products = [
   { id: 1, name: 'Coastal Silk Wrap', category: 'Resort Wear', price: '$850', image: img1, tag: 'Bestseller' },
@@ -25,7 +25,7 @@ const Shop = () => {
     <div style={{ backgroundColor: 'var(--bg-cream)', minHeight: '100vh' }}>
       
       {/* Page Header */}
-      <div style={{ paddingTop: '15vh', paddingBottom: '6rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ paddingTop: 'clamp(100px, 15vh, 15vh)', paddingBottom: 'clamp(2rem, 6rem, 6rem)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <h1 style={{
           position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
           fontSize: '25vw', color: 'rgba(26,26,26,0.03)', fontFamily: 'Playfair Display, serif',
@@ -40,15 +40,24 @@ const Shop = () => {
           <p style={{ fontSize: '0.65rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.3em', marginBottom: '1rem' }}>
             26 F/W New Collection
           </p>
-          <h2 style={{ fontSize: '4rem', fontFamily: 'Playfair Display, serif', fontWeight: '400' }}>The Collection</h2>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', fontFamily: 'Playfair Display, serif', fontWeight: '400' }}>The Collection</h2>
           <div style={{ width: '40px', height: '1px', backgroundColor: 'rgba(26,26,26,0.3)', margin: '2rem auto 0' }} />
         </motion.div>
       </div>
 
       {/* Filter Row */}
-      <div className="container" style={{ display: 'flex', gap: '2rem', marginBottom: '4rem', borderBottom: '1px solid rgba(26,26,26,0.1)', paddingBottom: '1.5rem' }}>
+      <div className="container" style={{ 
+        display: 'flex', 
+        gap: '2.5rem', 
+        marginBottom: '4rem', 
+        borderBottom: '1px solid rgba(26,26,26,0.1)', 
+        paddingBottom: '1.5rem',
+        overflowX: 'auto',
+        whiteSpace: 'nowrap',
+        WebkitOverflowScrolling: 'touch'
+      }}>
         {['All', 'Resort Wear', 'Couture', 'Signature', 'Accessories'].map((cat) => (
-          <button key={cat} style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: cat === 'All' ? 'var(--text-dark)' : 'var(--text-muted)', fontWeight: cat === 'All' ? '600' : '400', padding: '0', background: 'none', border: 'none', cursor: 'pointer' }}>
+          <button key={cat} style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: cat === 'All' ? 'var(--text-dark)' : 'var(--text-muted)', fontWeight: cat === 'All' ? '600' : '400', flexShrink: 0 }}>
             {cat}
           </button>
         ))}
@@ -56,7 +65,11 @@ const Shop = () => {
 
       {/* Product Grid */}
       <div className="container" style={{ paddingBottom: '10rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2.5rem 2rem' }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+          gap: '2.5rem 2rem' 
+        }}>
           {products.map((product, idx) => (
             <motion.div
               key={product.id}
@@ -68,9 +81,12 @@ const Shop = () => {
             >
               {/* Image */}
               <div style={{ position: 'relative', overflow: 'hidden', backgroundColor: '#DDD6CE', marginBottom: '1.2rem', aspectRatio: '3/4' }}>
-                <img src={product.image} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.8s ease' }}
-                  onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.04)'}
-                  onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                <img 
+                  src={product.image} 
+                  alt={product.name} 
+                  loading="lazy"
+                  className="img-zoom"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 {product.tag && (
                   <span style={{ position: 'absolute', top: '1rem', left: '1rem', fontSize: '0.55rem', textTransform: 'uppercase', letterSpacing: '0.15em', backgroundColor: 'var(--bg-cream)', padding: '0.3rem 0.6rem' }}>
