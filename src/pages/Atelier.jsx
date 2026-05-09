@@ -2,37 +2,39 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import imgCraft1 from '../assets/IMG_20260509_100315_415.webp';
 import imgCraft2 from '../assets/IMG_20260509_100308_708.webp';
-import imgAtelier from '../assets/IMG_20260509_100308_479.webp';
+// import imgAtelier from '../assets/IMG_20260509_100308_479.webp';
+import imgAtelier from '../assets/IMG_20260509_100021_627.webp';
+
 import Footer from '../components/Footer';
 
 const Atelier = () => {
   return (
     <div style={{ backgroundColor: 'var(--bg-cream)', minHeight: '100vh' }}>
-      
+
       {/* Hero Section */}
-      <section style={{ 
-        height: '80vh', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        position: 'relative', 
+      <section style={{
+        height: '80vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
         overflow: 'hidden',
         padding: 0
       }}>
-        <img 
-          src={imgAtelier} 
-          alt="Atelier Hero" 
-          style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.7)' }} 
+        <img
+          src={imgAtelier}
+          alt="Atelier Hero"
+          style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.7)' }}
         />
         <div style={{ position: 'absolute', textAlign: 'center', color: '#fff', zIndex: 2 }}>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.4em', marginBottom: '1.5rem' }}
           >
             The Hands Behind the Silk
           </motion.p>
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -48,24 +50,24 @@ const Atelier = () => {
         <div className="container">
           <div className="editorial-grid atelier-intro" style={{ alignItems: 'center' }}>
             <div style={{ gridColumn: 'span 7', order: 1 }}>
-              <motion.img 
+              <motion.img
                 initial={{ opacity: 0, scale: 1.05 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.5 }}
-                src={imgCraft1} 
-                alt="Craftsmanship" 
+                src={imgCraft1}
+                alt="Craftsmanship"
                 loading="lazy"
-                style={{ width: '100%', height: 'auto', maxHeight: '600px', objectFit: 'cover' }} 
+                style={{ width: '100%', height: 'auto', maxHeight: '600px', objectFit: 'cover' }}
               />
             </div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               style={{ gridColumn: 'span 5', order: 2 }}
             >
-              <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '2rem' }}>Patience is our<br/>Main Ingredient.</h2>
+              <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '2rem' }}>Patience is our<br />Main Ingredient.</h2>
               <p style={{ color: 'var(--text-muted)', lineHeight: 1.9 }}>
                 Every Bere Har garment begins its journey as a single thread of raw, organic silk. In our Asmara atelier, we honor the slow traditions of hand-weaving that have been passed down through generations.
               </p>
@@ -83,7 +85,7 @@ const Atelier = () => {
               { title: 'The Waves', body: 'Patterns are inspired by the rhythmic movement of the Red Sea, captured in fluid silk drapes.' },
               { title: 'The Wind', body: 'The weave is engineered for the ultimate breathability, allowing the coastal breeze to pass through the fabric.' }
             ].map((pillar, idx) => (
-              <motion.div 
+              <motion.div
                 key={pillar.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -106,17 +108,17 @@ const Atelier = () => {
         <div className="container">
           <div className="editorial-grid atelier-quote" style={{ alignItems: 'center' }}>
             <div style={{ gridColumn: 'span 7', order: 1 }}>
-              <motion.img 
+              <motion.img
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                src={imgCraft2} 
-                alt="Detail" 
+                src={imgCraft2}
+                alt="Detail"
                 loading="lazy"
-                style={{ width: '100%', height: 'auto', maxHeight: '800px', objectFit: 'cover' }} 
+                style={{ width: '100%', height: 'auto', maxHeight: '800px', objectFit: 'cover' }}
               />
             </div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}

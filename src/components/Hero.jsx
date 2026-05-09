@@ -67,7 +67,7 @@ const Hero = () => {
         </h2>
       </motion.div>
 
-      {/* Main Model with Parallax & Subtle Depth Shadow */}
+      {/* Main Model with Parallax */}
       <motion.img
         className="hero-model-img"
         initial={{ opacity: 0, scale: 1.05 }}
@@ -88,25 +88,25 @@ const Hero = () => {
         }}
       />
 
-      {/* Top Left: Collection & Time Info */}
+      {/* Top Left Content */}
       <motion.div 
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5, duration: 1 }}
         className="hero-editorial-left" 
-        style={{ position: 'absolute', left: '6%', top: '22%', zIndex: 3 }}
+        style={{ position: 'absolute', left: '6%', top: '25%', zIndex: 3 }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
-          <p style={{ fontSize: '0.55rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.4em' }}>Asmara, ER (15.3° N)</p>
-          <p style={{ fontSize: '0.55rem', color: 'var(--accent-gold)', fontWeight: '600' }}>{time}</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '1.2rem' }} className="hero-meta">
+          <p style={{ fontSize: '0.5rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.4em' }}>Asmara, ER (15.3° N)</p>
+          <p style={{ fontSize: '0.5rem', color: 'var(--accent-gold)', fontWeight: '600' }}>{time}</p>
         </div>
-        <h3 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: 0.85, fontFamily: 'Playfair Display, serif', fontWeight: '500', color: 'var(--text-dark)' }}>
+        <h3 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: 0.85, fontFamily: 'Playfair Display, serif', fontWeight: '500', color: 'var(--text-dark)' }}>
           BERE<br />HAR<br />WEEK
         </h3>
-        <p className="script-font" style={{ fontSize: '2.5rem', color: 'var(--accent-gold)', marginTop: '1rem', transform: 'rotate(-4deg)', opacity: 0.9 }}>The Silken Path.</p>
+        <p className="hero-script" style={{ fontSize: '2.5rem', color: 'var(--accent-gold)', marginTop: '0.8rem', transform: 'rotate(-4deg)', opacity: 0.9 }}>The Silken Path.</p>
       </motion.div>
 
-      {/* Floating Animated Badge */}
+      {/* Floating Animated Badge - Hiddon on mobile or smaller */}
       <motion.div 
         animate={{ rotate: 360 }}
         transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
@@ -114,8 +114,8 @@ const Hero = () => {
           position: 'absolute',
           top: '20%',
           left: '42%',
-          width: '110px',
-          height: '110px',
+          width: '100px',
+          height: '100px',
           borderRadius: '50%',
           border: '1px solid rgba(26,26,26,0.08)',
           display: 'flex',
@@ -125,14 +125,14 @@ const Hero = () => {
           backgroundColor: 'rgba(235, 230, 223, 0.4)',
           backdropFilter: 'blur(5px)'
         }}
-        className="hero-badge"
+        className="hero-badge-floating"
       >
         <p style={{ fontSize: '0.4rem', textTransform: 'uppercase', letterSpacing: '0.25em', textAlign: 'center', color: 'var(--text-dark)', opacity: 0.6 }}>
           26 F/W<br/>Atelier<br/>Limited
         </p>
       </motion.div>
 
-      {/* Bottom Right: Technical Specs Overlay */}
+      {/* Bottom Content */}
       <motion.div 
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
@@ -140,24 +140,23 @@ const Hero = () => {
         className="hero-editorial-bottom-right" 
         style={{ position: 'absolute', right: '6%', bottom: '12%', zIndex: 3, textAlign: 'right' }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', justifyContent: 'flex-end', marginBottom: '1rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', justifyContent: 'flex-end', marginBottom: '0.8rem' }}>
           <div style={{ width: '40px', height: '1px', backgroundColor: 'var(--text-dark)', opacity: 0.2 }} />
-          <p style={{ fontSize: '0.55rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.4em' }}>100% Raw Mulberry Silk</p>
+          <p style={{ fontSize: '0.5rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.4em' }}>100% Raw Mulberry Silk</p>
         </div>
-        <h4 style={{ fontSize: '1.5rem', fontFamily: 'Playfair Display, serif', fontWeight: '400', fontStyle: 'italic' }}>Series No. 04</h4>
+        <h4 style={{ fontSize: '1.4rem', fontFamily: 'Playfair Display, serif', fontWeight: '400', fontStyle: 'italic' }}>Series No. 04</h4>
       </motion.div>
 
-      {/* Left Bottom: Coordinate Detail */}
       <div className="hero-editorial-bottom-left" style={{ position: 'absolute', left: '6%', bottom: '12%', zIndex: 3, maxWidth: '280px' }}>
-        <p style={{ fontSize: '0.6rem', color: 'var(--text-muted)', lineHeight: 1.8, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+        <p style={{ fontSize: '0.55rem', color: 'var(--text-muted)', lineHeight: 1.8, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
           Hand-Woven Traditions<br/>
           <span style={{ opacity: 0.5 }}>Asmara • Paris • Milan</span>
         </p>
       </div>
 
-      {/* Minimal Scroll Guide */}
+      {/* Scroll Indicator */}
       <motion.div 
-        animate={{ height: [40, 80, 40], opacity: [0.3, 0.6, 0.3] }}
+        animate={{ height: [40, 70, 40], opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 2.5, repeat: Infinity }}
         style={{ position: 'absolute', bottom: '0', left: '50%', transform: 'translateX(-50%)', width: '1px', backgroundColor: 'var(--text-dark)', zIndex: 3 }}
       />
